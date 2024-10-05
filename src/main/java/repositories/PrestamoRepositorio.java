@@ -9,6 +9,5 @@ import java.util.List;
 @Repository
 public interface PrestamoRepositorio extends JpaRepository<PrestamoEntidad, Long> {
 
-    List<ClienteEntidad> findByIdCliente(int idCliente;
 
 }

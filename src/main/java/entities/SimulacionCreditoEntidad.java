@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import jakarta.persistence.*;
+
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
@@ -20,10 +22,10 @@ public class SimulacionCreditoEntidad {
     private Long id;
 
     private int idCliente;
-    private float montoSolicitado;
+    private BigDecimal montoSolicitado;
     private int plazoSolicitado;
-    private float tasaInteres;
-    private float cuotaMensual;
+    private BigDecimal tasaInteres;
+    private BigDecimal cuotaMensual;
     private Date fechaSimulacion;
 
 }

@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "evaluacionCredito")
 @Data
@@ -19,12 +21,12 @@ public class EvaluacionCreditoEntidad {
     private Long id;
 
     private int idPrestamo;
-    private float cuotaIngreso;
+    private BigDecimal cuotaIngreso;
     private String historialCredito;
     private int antiguedadLaboral;
-    private float deudaIngreso;
-    private float montoFinanciamiento;
-    private float capacidadAhorro;
+    private BigDecimal deudaIngreso;
+    private BigDecimal montoFinanciamiento;
+    private BigDecimal capacidadAhorro;
     private String resultado;
 
 }

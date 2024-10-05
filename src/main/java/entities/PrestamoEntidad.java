@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import jakarta.persistence.*;
+
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
@@ -20,9 +22,9 @@ public class PrestamoEntidad {
     private Long id;
 
     private int idCliente;
-    private float monto;
+    private BigDecimal monto;
     private int plazo;
-    private float tasaInteres;
+    private BigDecimal tasaInteres;
     private String tipoPrestamo;
     private Date fechaSolicitud;
     private String estado;
