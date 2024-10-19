@@ -17,7 +17,7 @@ public class PrestamoServicio {
         return(ArrayList<PrestamoEntidad>) prestamoRepositorio.findAll();
     }
 
-    public PrestamoEntidad savePrestamos(PrestamoEntidad prestamo) {return prestamoRepositorio.save(prestamo);}
+    public PrestamoEntidad savePrestamo(PrestamoEntidad prestamo) {return prestamoRepositorio.save(prestamo);}
 
     public PrestamoEntidad getPrestamoById(Long id){ return prestamoRepositorio.findById(id).get();}
 
