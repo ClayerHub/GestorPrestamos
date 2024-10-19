@@ -26,5 +26,12 @@ public class DocumentoServicio {
     public List<DocumentoEntidad> getDocumentoByDate(Date date){ return (List<DocumentoEntidad>)documentoRepositorio.findByDate(date);}
     public DocumentoEntidad updateDocumento(DocumentoEntidad documento) {return documentoRepositorio.save(documento);}
 
-
+    public boolean deleteDocumento(Long id) throws Exception {
+        try{
+            documentoRepositorio.deleteById(id);
+            return true;
+        } catch(Exception error){
+            throw new Exception(error.getMessage());
+        }
+    }
 }

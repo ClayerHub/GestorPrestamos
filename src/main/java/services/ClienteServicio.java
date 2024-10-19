@@ -23,7 +23,7 @@ public class ClienteServicio {
 
     public ClienteEntidad updateCliente(ClienteEntidad cliente) { return clienteRepositorio.save(cliente);}
 
-    public boolean deleteClienteById(Long id) throws Exception {
+    public boolean deleteCliente(Long id) throws Exception {
         try{
             clienteRepositorio.deleteById(id);
             return true;
