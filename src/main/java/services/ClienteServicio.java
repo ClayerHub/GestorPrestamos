@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repositories.ClienteRepositorio;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 @Service
@@ -16,6 +17,7 @@ public class ClienteServicio {
     public ArrayList<ClienteEntidad> getClientes(){ return (ArrayList<ClienteEntidad>) clienteRepositorio.findAll();}
 
     public ClienteEntidad saveCliente(ClienteEntidad cliente) { return clienteRepositorio.save(cliente);}
+    public ClienteEntidad registrarCliente(ClienteEntidad cliente){cliente.setFechaRegistro(LocalDate.now()); return saveCliente(cliente);}
 
     public ClienteEntidad getClienteById(Long id) {return clienteRepositorio.findById(id).get();}
 

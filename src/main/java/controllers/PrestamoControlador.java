@@ -32,6 +32,10 @@ public class PrestamoControlador {
         PrestamoEntidad nuevoPrestamo = prestamoServicio.savePrestamo(prestamo);
         return ResponseEntity.ok(nuevoPrestamo);
     }
+    @PostMapping("/Request")
+    public PrestamoEntidad loanRequest(@RequestBody PrestamoEntidad prestamo) {
+        return prestamoServicio.registerLoanApplication(prestamo);
+    }
     @PutMapping("/Update")
     public ResponseEntity<PrestamoEntidad> updatePrestamo(@RequestBody PrestamoEntidad prestamo){
         PrestamoEntidad prestamoActualizado = prestamoServicio.updatePrestamo(prestamo);

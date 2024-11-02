@@ -32,6 +32,10 @@ public class EvaluacionCreditoControlador {
         EvaluacionCreditoEntidad nuevaEvaluacionCredito = evaluacionCreditoServicio.saveEvaluacionCredito(evaluacionCredito);
         return ResponseEntity.ok(nuevaEvaluacionCredito);
     }
+    @PostMapping("/Evaluate")
+    public EvaluacionCreditoEntidad creditEvaluate(@RequestBody EvaluacionCreditoEntidad evaluacion) {
+        return evaluacionCreditoServicio.requestEvaluation(evaluacion);
+    }
     @PutMapping("/Update")
     public ResponseEntity<EvaluacionCreditoEntidad> updateEvaluacionCredito(@RequestBody EvaluacionCreditoEntidad evaluacionCredito){
         EvaluacionCreditoEntidad evaluacionCreditoActualizado = evaluacionCreditoServicio.updateEvaluacionCredito(evaluacionCredito);

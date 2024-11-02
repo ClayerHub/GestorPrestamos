@@ -31,6 +31,11 @@ public class SimulacionCreditoControlador {
         SimulacionCreditoEntidad nuevaSimulacionCredito = simulacionCreditoServicio.saveSimulacionCredito(simulacionCredito);
         return ResponseEntity.ok(nuevaSimulacionCredito);
     }
+    @PostMapping("/Simulation-Calculate")
+    public SimulacionCreditoEntidad calculateSimulation(@RequestParam int idCliente, @RequestParam double monto,
+            @RequestParam int plazo, @RequestParam double tasaInteres) {
+        return simulacionCreditoServicio.calculateSimulation(idCliente, monto, plazo, tasaInteres);
+    }
     @PutMapping("/Update")
     public ResponseEntity<SimulacionCreditoEntidad> updateSimulacionCredito(@RequestBody SimulacionCreditoEntidad simulacionCredito){
         SimulacionCreditoEntidad simulacionCreditoActualizado = simulacionCreditoServicio.updateSimulacionCredito(simulacionCredito);
@@ -41,4 +46,5 @@ public class SimulacionCreditoControlador {
         var eliminado = simulacionCreditoServicio.deleteSimulacionCredito(id);
         return ResponseEntity.noContent().build();
     }
+
 }

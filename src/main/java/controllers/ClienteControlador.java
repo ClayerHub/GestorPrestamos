@@ -34,6 +34,11 @@ public class ClienteControlador {
         return ResponseEntity.ok(nuevoCliente);
     }
 
+    @PostMapping("/Register")
+    public ClienteEntidad registerCliente(@RequestBody ClienteEntidad cliente) {
+        return clienteServicio.registrarCliente(cliente);
+    }
+
     @PutMapping("/Update")
     public ResponseEntity<ClienteEntidad> updateCliente(@RequestBody ClienteEntidad cliente){
         ClienteEntidad clienteActualizado = clienteServicio.updateCliente(cliente);

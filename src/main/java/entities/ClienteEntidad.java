@@ -5,7 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import jakarta.persistence.*;
-import java.util.Date;
+
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "cliente")
@@ -24,7 +25,7 @@ public class ClienteEntidad {
     private String apellido;
     private String email;
     private String telefono;
-    private Date fechaRegistro;
+    private LocalDate fechaRegistro;
     private String tipoDocumento;
     private String numeroDocumento;
     private String direccion;

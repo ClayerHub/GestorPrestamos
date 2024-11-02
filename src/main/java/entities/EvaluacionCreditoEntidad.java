@@ -21,12 +21,12 @@ public class EvaluacionCreditoEntidad {
     private Long id;
 
     private int idPrestamo;
-    private BigDecimal cuotaIngreso;
+    private double cuotaIngreso;
     private String historialCredito;
     private int antiguedadLaboral;
-    private BigDecimal deudaIngreso;
-    private BigDecimal montoFinanciamiento;
-    private BigDecimal capacidadAhorro;
+    private double deudaIngreso;
+    private double montoFinanciamiento;
+    private double capacidadAhorro;
     private String resultado;
 
 }

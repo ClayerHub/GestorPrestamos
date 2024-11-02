@@ -31,4 +31,27 @@ public class EvaluacionCreditoServicio {
             throw new Exception(error.getMessage());
         }
     }
+
+    public EvaluacionCreditoEntidad requestEvaluation(EvaluacionCreditoEntidad evaluacion) {
+        if (evaluacion.getCuotaIngreso() > 0.35) {
+            evaluacion.setResultado("Rechazado");
+        }
+        else if (!evaluacion.getHistorialCredito().equals("Bueno")) {
+            evaluacion.setResultado("Rechazado");
+        }
+        else if (evaluacion.getAntiguedadLaboral() < 1) {
+            evaluacion.setResultado("Rechazado");
+        }
+        else if (evaluacion.getDeudaIngreso() > 0.50) {
+            evaluacion.setResultado("Rechazado");
+        }
+        else if (evaluacion.getMontoFinanciamiento() > 80) {
+            evaluacion.setResultado("Rechazado");
+        }
+        else {
+            evaluacion.setResultado("Aprobado");
+        }
+
+        return evaluacionCreditoRepositorio.save(evaluacion);
+    }
 }

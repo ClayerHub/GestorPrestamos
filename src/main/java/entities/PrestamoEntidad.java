@@ -6,8 +6,7 @@ import lombok.NoArgsConstructor;
 
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "prestamo")
@@ -22,11 +21,11 @@ public class PrestamoEntidad {
     private Long id;
 
     private int idCliente;
-    private BigDecimal monto;
+    private double monto;
     private int plazo;
-    private BigDecimal tasaInteres;
+    private double tasaInteres;
     private String tipoPrestamo;
-    private Date fechaSolicitud;
+    private LocalDate fechaSolicitud;
     private String estado;
 
 }
