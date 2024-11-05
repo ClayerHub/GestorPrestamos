@@ -21,9 +21,8 @@ public class DocumentoService {
 
     public DocumentoEntity getDocumentoById(Long id) { return documentoRepository.findById(id).get();}
 
-    public List<DocumentoEntity> getDocumentoByRut(String rut){ return (List<DocumentoEntity>) documentoRepository.findByRut(rut);}
 
-    public List<DocumentoEntity> getDocumentoByDate(Date date){ return (List<DocumentoEntity>) documentoRepository.findByDate(date);}
+    public List<DocumentoEntity> getDocumentoByDate(Date date){ return (List<DocumentoEntity>) documentoRepository.findByFechaCarga(date);}
     public DocumentoEntity updateDocumento(DocumentoEntity documento) {return documentoRepository.save(documento);}
 
     public boolean deleteDocumento(Long id) throws Exception {

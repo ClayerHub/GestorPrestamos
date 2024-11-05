@@ -9,7 +9,7 @@ import com.gestorprestamos.services.HistorialCreditoService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/pb/historial-creditos")
+@RequestMapping("/api/historial-creditos")
 @CrossOrigin("*")
 public class HistorialCreditoController {
 

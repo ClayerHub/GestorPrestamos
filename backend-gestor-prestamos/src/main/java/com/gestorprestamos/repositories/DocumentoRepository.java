@@ -9,6 +9,5 @@ import java.util.Date;
 @Repository
 public interface DocumentoRepository extends JpaRepository<DocumentoEntity, Long> {
 
-    public DocumentoEntity findByRut(String rut);
-    public DocumentoEntity findByDate(Date date);
+    public DocumentoEntity findByFechaCarga(Date fechaCarga);
 }

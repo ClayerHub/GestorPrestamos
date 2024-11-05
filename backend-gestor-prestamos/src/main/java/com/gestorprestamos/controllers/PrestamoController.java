@@ -9,7 +9,7 @@ import com.gestorprestamos.services.PrestamoService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/pb/prestamos")
+@RequestMapping("/api/prestamos")
 @CrossOrigin("*")
 public class PrestamoController {
 

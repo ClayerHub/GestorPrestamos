@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/pb/simulacion-creditos")
+@RequestMapping("/api/simulacion-creditos")
 @CrossOrigin("*")
 public class SimulacionCreditoController {
 

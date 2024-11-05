@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/pb/costo-total")
+@RequestMapping("/api/costo-total")
 @CrossOrigin("*")
 public class CostoTotalController {
 
