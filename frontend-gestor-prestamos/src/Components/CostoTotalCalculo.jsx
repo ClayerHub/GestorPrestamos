@@ -20,7 +20,7 @@ function CostoTotalCalculo() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.get(`${process.env.REACT_APP_API_URL}/costos/calcular`, {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/costo-total/calculate`, {
                 params: {
                     monto: datosPrestamo.monto,
                     plazo: datosPrestamo.plazo,

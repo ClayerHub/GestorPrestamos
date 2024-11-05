@@ -24,7 +24,7 @@ function EvaluacionCredito() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`${process.env.REACT_APP_API_URL}/evaluaciones/evaluar`, evaluacion);
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/evaluacion-creditos/evaluate`, evaluacion);
             setResultado(`Resultado de la Evaluación: ${response.data.resultado}`);
             setMensaje('');
         } catch (error) {

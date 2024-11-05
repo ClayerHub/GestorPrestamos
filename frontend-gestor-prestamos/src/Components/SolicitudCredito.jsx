@@ -2,76 +2,67 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { TextField, Button, Box, Typography, Alert } from '@mui/material';
 
-function Cliente() {
-    const [cliente, setCliente] = useState({
-        rut: '',
+function SolicitudCredito() {
+    const [solicitud, setSolicitud] = useState({
         nombre: '',
-        apellido: '',
+        direccion: '',
         email: '',
         telefono: '',
-        tipoDocumento: '',
-        numeroDocumento: '',
-        direccion: ''
+        ingresos: '',
+        montoSolicitado: '',
+        plazo: '',
+        tipoPrestamo: ''
     });
 
     const [mensaje, setMensaje] = useState('');
 
     const handleChange = (e) => {
-        setCliente({ ...cliente, [e.target.name]: e.target.value });
+        setSolicitud({ ...solicitud, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`${process.env.REACT_APP_API_URL}/clientes/register`, cliente);
-            setMensaje(`Cliente registrado con éxito: ${response.data.nombre} ${response.data.apellido}`);
-            setCliente({
-                rut: '',
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/solicitudes`, solicitud);
+            setMensaje(`Solicitud de crédito enviada con éxito. ID de solicitud: ${response.data.id}`);
+            setSolicitud({
                 nombre: '',
-                apellido: '',
+                direccion: '',
                 email: '',
                 telefono: '',
-                tipoDocumento: '',
-                numeroDocumento: '',
-                direccion: ''
+                ingresos: '',
+                montoSolicitado: '',
+                plazo: '',
+                tipoPrestamo: ''
             });
         } catch (error) {
-            console.error("Error al registrar el cliente", error);
-            setMensaje('Hubo un error al registrar el cliente');
+            console.error("Error al enviar la solicitud", error);
+            setMensaje('Hubo un error al enviar la solicitud de crédito');
         }
     };
 
     return (
         <Box sx={{ maxWidth: 600, mx: 'auto', mt: 4, p: 3, boxShadow: 3, borderRadius: 2 }}>
             <Typography variant="h5" component="h2" gutterBottom>
-                Registro de Nuevo Cliente
+                Solicitud de Crédito Hipotecario
             </Typography>
             
             {mensaje && <Alert severity="info" sx={{ mb: 2 }}>{mensaje}</Alert>}
             
             <form onSubmit={handleSubmit}>
                 <TextField 
-                    label="RUT"
-                    name="rut"
-                    value={cliente.rut}
-                    onChange={handleChange}
-                    fullWidth
-                    margin="normal"
-                    required
-                />
-                <TextField 
                     label="Nombre"
                     name="nombre"
-                    value={cliente.nombre}
+                    value={solicitud.nombre}
                     onChange={handleChange}
                     fullWidth
                     margin="normal"
                     required
                 />
                 <TextField 
-                    label="Apellido"
-                    name="apellido"
-                    value={cliente.apellido}
+                    label="Dirección"
+                    name="direccion"
+                    value={solicitud.direccion}
                     onChange={handleChange}
                     fullWidth
                     margin="normal"
@@ -81,7 +72,7 @@ function Cliente() {
                     label="Email"
                     name="email"
                     type="email"
-                    value={cliente.email}
+                    value={solicitud.email}
                     onChange={handleChange}
                     fullWidth
                     margin="normal"
@@ -90,34 +81,49 @@ function Cliente() {
                 <TextField 
                     label="Teléfono"
                     name="telefono"
-                    value={cliente.telefono}
+                    value={solicitud.telefono}
                     onChange={handleChange}
                     fullWidth
                     margin="normal"
                 />
                 <TextField 
-                    label="Tipo de Documento"
-                    name="tipoDocumento"
-                    value={cliente.tipoDocumento}
+                    label="Ingresos Mensuales"
+                    name="ingresos"
+                    type="number"
+                    value={solicitud.ingresos}
                     onChange={handleChange}
                     fullWidth
                     margin="normal"
+                    required
                 />
                 <TextField 
-                    label="Número de Documento"
-                    name="numeroDocumento"
-                    value={cliente.numeroDocumento}
+                    label="Monto Solicitado"
+                    name="montoSolicitado"
+                    type="number"
+                    value={solicitud.montoSolicitado}
                     onChange={handleChange}
                     fullWidth
                     margin="normal"
+                    required
                 />
                 <TextField 
-                    label="Dirección"
-                    name="direccion"
-                    value={cliente.direccion}
+                    label="Plazo (en años)"
+                    name="plazo"
+                    type="number"
+                    value={solicitud.plazo}
                     onChange={handleChange}
                     fullWidth
                     margin="normal"
+                    required
+                />
+                <TextField 
+                    label="Tipo de Préstamo"
+                    name="tipoPrestamo"
+                    value={solicitud.tipoPrestamo}
+                    onChange={handleChange}
+                    fullWidth
+                    margin="normal"
+                    required
                 />
                 
                 <Button 
@@ -127,11 +133,11 @@ function Cliente() {
                     fullWidth
                     sx={{ mt: 2 }}
                 >
-                    Registrar Cliente
+                    Enviar Solicitud
                 </Button>
             </form>
         </Box>
     );
 }
 
-export default Cliente;
+export default SolicitudCredito;

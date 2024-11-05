@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Menu from './Components/Menu'; // Importa el nuevo componente Menu
 import Cliente from './Components/Cliente';
 import SimulacionCredito from './Components/SimulacionCredito';
-import SolicitudPrestamo from './Components/SolicitudPrestamo';
+import SolicitudCredito from './Components/SolicitudCredito';
 import EvaluacionCredito from './Components/EvaluacionCredito';
 import SeguimientoSolicitud from './Components/SeguimientoSolicitud';
 import CostoTotalCalculo from './Components/CostoTotalCalculo';
@@ -28,7 +28,7 @@ function App() {
                         <Route path="/evaluacion-credito" element={<EvaluacionCredito />} />
                         <Route path="/seguimiento-solicitud" element={<SeguimientoSolicitud />} />
                         <Route path="/simulacion-credito" element={<SimulacionCredito />} />
-                        <Route path="/solicitud-prestamo" element={<SolicitudPrestamo />} />
+                        <Route path="/solicitud-credito" element={<SolicitudCredito />} />
                     </Routes>
                 </Box>
             </Container>

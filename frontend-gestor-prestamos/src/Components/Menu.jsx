@@ -29,8 +29,8 @@ const Menu = () => {
                 <Button component={Link} to="/simulacion-credito" variant="contained" sx={{ m: 1 }}>
                     Simulacion Credito
                 </Button>
-                <Button component={Link} to="/solicitud-prestamo" variant="contained" sx={{ m: 1 }}>
-                    Solicitud Prestamo
+                <Button component={Link} to="/solicitud-credito" variant="contained" sx={{ m: 1 }}>
+                    Solicitud Credito
                 </Button>
             </Box>
         </Box>
