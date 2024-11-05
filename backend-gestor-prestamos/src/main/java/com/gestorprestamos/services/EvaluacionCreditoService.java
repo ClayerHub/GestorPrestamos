@@ -1,38 +1,38 @@
 package com.gestorprestamos.services;
 
-import com.gestorprestamos.entities.EvaluacionCreditoEntidad;
+import com.gestorprestamos.entities.EvaluacionCreditoEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.gestorprestamos.repositories.EvaluacionCreditoRepositorio;
+import com.gestorprestamos.repositories.EvaluacionCreditoRepository;
 
 import java.util.ArrayList;
 
 @Service
-public class EvaluacionCreditoServicio {
+public class EvaluacionCreditoService {
 
     @Autowired
-    EvaluacionCreditoRepositorio evaluacionCreditoRepositorio;
+    EvaluacionCreditoRepository evaluacionCreditoRepository;
 
-    public ArrayList<EvaluacionCreditoEntidad> getEvaluacionCreditos(){
-        return (ArrayList<EvaluacionCreditoEntidad>) evaluacionCreditoRepositorio.findAll();
+    public ArrayList<EvaluacionCreditoEntity> getEvaluacionCreditos(){
+        return (ArrayList<EvaluacionCreditoEntity>) evaluacionCreditoRepository.findAll();
     }
 
-    public EvaluacionCreditoEntidad saveEvaluacionCredito(EvaluacionCreditoEntidad evaluacionCredito) {return evaluacionCreditoRepositorio.save(evaluacionCredito); }
+    public EvaluacionCreditoEntity saveEvaluacionCredito(EvaluacionCreditoEntity evaluacionCredito) {return evaluacionCreditoRepository.save(evaluacionCredito); }
 
-    public EvaluacionCreditoEntidad getEvaluacionCreditoById(Long id) { return evaluacionCreditoRepositorio.findById(id).get();}
+    public EvaluacionCreditoEntity getEvaluacionCreditoById(Long id) { return evaluacionCreditoRepository.findById(id).get();}
 
-    public EvaluacionCreditoEntidad updateEvaluacionCredito(EvaluacionCreditoEntidad evaluacionCredito) {return evaluacionCreditoRepositorio.save(evaluacionCredito);}
+    public EvaluacionCreditoEntity updateEvaluacionCredito(EvaluacionCreditoEntity evaluacionCredito) {return evaluacionCreditoRepository.save(evaluacionCredito);}
 
     public boolean deleteEvaluacionCredito(Long id) throws Exception{
         try{
-            evaluacionCreditoRepositorio.deleteById(id);
+            evaluacionCreditoRepository.deleteById(id);
             return true;
         } catch (Exception error){
             throw new Exception(error.getMessage());
         }
     }
 
-    public EvaluacionCreditoEntidad requestEvaluation(EvaluacionCreditoEntidad evaluacion) {
+    public EvaluacionCreditoEntity requestEvaluation(EvaluacionCreditoEntity evaluacion) {
         if (evaluacion.getCuotaIngreso() > 0.35) {
             evaluacion.setResultado("Rechazado");
         }
@@ -52,6 +52,6 @@ public class EvaluacionCreditoServicio {
             evaluacion.setResultado("Aprobado");
         }
 
-        return evaluacionCreditoRepositorio.save(evaluacion);
+        return evaluacionCreditoRepository.save(evaluacion);
     }
 }

@@ -5,15 +5,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import jakarta.persistence.*;
-
-import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "evaluacionCredito")
+@Table(name = "documento")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EvaluacionCreditoEntidad {
+public class DocumentoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,12 +20,8 @@ public class EvaluacionCreditoEntidad {
     private Long id;
 
     private int idPrestamo;
-    private double cuotaIngreso;
-    private String historialCredito;
-    private int antiguedadLaboral;
-    private double deudaIngreso;
-    private double montoFinanciamiento;
-    private double capacidadAhorro;
-    private String resultado;
+    private String tipoDocumento;
+    private String rutaArchivo;
+    private Date fechaCarga;
 
 }

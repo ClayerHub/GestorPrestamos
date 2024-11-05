@@ -6,25 +6,25 @@ import lombok.NoArgsConstructor;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
-
 @Entity
-@Table(name = "simulacionCredito")
+@Table(name = "evaluacionCredito")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SimulacionCreditoEntidad {
+public class EvaluacionCreditoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long id;
 
-    private int idCliente;
-    private double montoSolicitado;
-    private int plazoSolicitado;
-    private double tasaInteres;
-    private double cuotaMensual;
-    private LocalDate fechaSimulacion;
+    private int idPrestamo;
+    private double cuotaIngreso;
+    private String historialCredito;
+    private int antiguedadLaboral;
+    private double deudaIngreso;
+    private double montoFinanciamiento;
+    private double capacidadAhorro;
+    private String resultado;
 
 }

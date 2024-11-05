@@ -3,7 +3,7 @@ package com.gestorprestamos.services;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CostoTotalServicio {
+public class CostoTotalService {
 
     public double monthlyQuotaCalculate(double monto, int plazo, double tasaInteres){
         double tasaMensual = tasaInteres /12 /100;
