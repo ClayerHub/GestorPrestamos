@@ -1,9 +1,9 @@
-package com.example.GestorPrestamos;
+package com.gestorprestamos;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+@SpringBootTest(classes = GestorPrestamosApplication.class)
 class GestorPrestamosApplicationTests {
 
 	@Test
