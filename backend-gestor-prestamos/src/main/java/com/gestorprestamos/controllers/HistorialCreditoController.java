@@ -16,27 +16,27 @@ public class HistorialCreditoController {
     @Autowired
     HistorialCreditoService historialCreditoService;
 
-    @GetMapping("/FindAll")
+    @GetMapping("/find-all")
     public ResponseEntity<List<HistorialCreditoEntity>> listHistorialCreditos(){
         List<HistorialCreditoEntity> historialCreditos = historialCreditoService.getHistorialCreditos();
         return ResponseEntity.ok(historialCreditos);
     }
-    @GetMapping("Find-{id}")
+    @GetMapping("find-{id}")
     public ResponseEntity<HistorialCreditoEntity> getHistorialCreditoById(@PathVariable Long id){
         HistorialCreditoEntity historialCredito = historialCreditoService.getHistorialCreditoById(id);
         return ResponseEntity.ok(historialCredito);
     }
-    @PostMapping("/Save")
+    @PostMapping("/save")
     public ResponseEntity<HistorialCreditoEntity> saveHistorialCredito(@RequestBody HistorialCreditoEntity historialCredito){
         HistorialCreditoEntity nuevoHistorialCredito = historialCreditoService.saveHistorialCredito(historialCredito);
         return ResponseEntity.ok(nuevoHistorialCredito);
     }
-    @PutMapping("/Update")
+    @PutMapping("/update")
     public ResponseEntity<HistorialCreditoEntity> updateHistorialCredito(@RequestBody HistorialCreditoEntity historialCredito){
         HistorialCreditoEntity historialCreditoActualizado = historialCreditoService.updateHistorialCredito(historialCredito);
         return ResponseEntity.ok(historialCreditoActualizado);
     }
-    @DeleteMapping("/Delete-{id}")
+    @DeleteMapping("/delete-{id}")
     public ResponseEntity<Boolean> deleteHistorialCreditoById(@PathVariable Long id) throws Exception{
         var eliminado = historialCreditoService.deleteHistorialCredito(id);
         return ResponseEntity.noContent().build();

@@ -16,27 +16,27 @@ public class DocumentoController {
     @Autowired
     DocumentoService documentoService;
 
-    @GetMapping("/FindAll")
+    @GetMapping("/find-all")
     public ResponseEntity<List<DocumentoEntity>> listDocumentos(){
         List<DocumentoEntity> documentos = documentoService.getDocumentos();
         return ResponseEntity.ok(documentos);
     }
-    @GetMapping("Find-{id}")
+    @GetMapping("find-{id}")
     public ResponseEntity<DocumentoEntity> getDocumentoById(@PathVariable Long id){
         DocumentoEntity documento = documentoService.getDocumentoById(id);
         return ResponseEntity.ok(documento);
     }
-    @PostMapping("/Save")
+    @PostMapping("/save")
     public ResponseEntity<DocumentoEntity> saveDocumento(@RequestBody DocumentoEntity documento){
         DocumentoEntity nuevoDocumento = documentoService.saveDocumento(documento);
         return ResponseEntity.ok(nuevoDocumento);
     }
-    @PutMapping("/Update")
+    @PutMapping("/update")
     public ResponseEntity<DocumentoEntity> updateDocumento(@RequestBody DocumentoEntity documento){
         DocumentoEntity documentoActualizado = documentoService.updateDocumento(documento);
         return ResponseEntity.ok(documentoActualizado);
     }
-    @DeleteMapping("/Delete-{id}")
+    @DeleteMapping("/delete-{id}")
     public ResponseEntity<Boolean> deleteDocumentoById(@PathVariable Long id) throws Exception{
         var eliminado = documentoService.deleteDocumento(id);
         return ResponseEntity.noContent().build();

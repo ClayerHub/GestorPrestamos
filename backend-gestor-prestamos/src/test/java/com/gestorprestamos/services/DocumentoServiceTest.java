@@ -1,8 +1,7 @@
-package com.gestorprestamos;
+package com.gestorprestamos.services;
 
 import com.gestorprestamos.entities.DocumentoEntity;
 import com.gestorprestamos.repositories.DocumentoRepository;
-import com.gestorprestamos.services.DocumentoService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -11,7 +10,6 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;

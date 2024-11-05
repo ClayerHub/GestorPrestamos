@@ -1,6 +1,5 @@
-package com.gestorprestamos;
+package com.gestorprestamos.services;
 
-import com.gestorprestamos.services.CostoTotalService;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

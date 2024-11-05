@@ -1,8 +1,7 @@
-package com.gestorprestamos;
+package com.gestorprestamos.services;
 
 import com.gestorprestamos.entities.ClienteEntity;
 import com.gestorprestamos.repositories.ClienteRepository;
-import com.gestorprestamos.services.ClienteService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

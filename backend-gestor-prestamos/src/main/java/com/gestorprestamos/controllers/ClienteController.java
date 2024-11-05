@@ -16,36 +16,36 @@ public class ClienteController {
     @Autowired
     ClienteService clienteService;
 
-    @GetMapping("/FindAll")
+    @GetMapping("/find-all")
     public ResponseEntity<List<ClienteEntity>> listClientes(){
         List<ClienteEntity> clientes = clienteService.getClientes();
         return ResponseEntity.ok(clientes);
     }
 
-    @GetMapping("/Find-{id}")
+    @GetMapping("/find-{id}")
     public ResponseEntity<ClienteEntity> getClienteById(@PathVariable Long id){
         ClienteEntity cliente = clienteService.getClienteById(id);
         return ResponseEntity.ok(cliente);
     }
 
-    @PostMapping("/Save")
+    @PostMapping("/save")
     public ResponseEntity<ClienteEntity> saveCliente(@RequestBody ClienteEntity cliente){
         ClienteEntity nuevoCliente = clienteService.saveCliente(cliente);
         return ResponseEntity.ok(nuevoCliente);
     }
 
-    @PostMapping("/Register")
+    @PostMapping("/register")
     public ClienteEntity registerCliente(@RequestBody ClienteEntity cliente) {
         return clienteService.registrarCliente(cliente);
     }
 
-    @PutMapping("/Update")
+    @PutMapping("/update")
     public ResponseEntity<ClienteEntity> updateCliente(@RequestBody ClienteEntity cliente){
         ClienteEntity clienteActualizado = clienteService.updateCliente(cliente);
         return ResponseEntity.ok(clienteActualizado);
     }
 
-    @DeleteMapping("/Delete-{id}")
+    @DeleteMapping("/delete-{id}")
     public ResponseEntity<Boolean> deleteClienteById(@PathVariable Long id) throws Exception{
         var eliminado = clienteService.deleteCliente(id);
         return ResponseEntity.noContent().build();
