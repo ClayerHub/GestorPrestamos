@@ -1,7 +1,7 @@
 package com.gestorprestamos.services;
 
-import com.gestorprestamos.entities.ClienteEntity;
-import com.gestorprestamos.repositories.ClienteRepository;
+import com.gestorprestamos.entities.RegistroClienteEntity;
+import com.gestorprestamos.repositories.RegistroClienteRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -15,20 +15,20 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
-class ClienteServiceTest {
+class RegistroClienteServiceTest {
 
     @Mock
-    private ClienteRepository clienteRepository; // Mock del repositorio
+    private RegistroClienteRepository clienteRepository; // Mock del repositorio
 
     @InjectMocks
-    private ClienteService clienteService; // Servicio a probar
+    private RegistroClienteService clienteService; // Servicio a probar
 
-    private ClienteEntity cliente;
+    private RegistroClienteEntity cliente;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this); // Inicializa los mocks
-        cliente = new ClienteEntity(); // Inicializa un cliente de ejemplo
+        cliente = new RegistroClienteEntity(); // Inicializa un cliente de ejemplo
         cliente.setRut("12.345.678-9");
         cliente.setNombre("Juan");
         cliente.setApellido("Pérez");
@@ -39,12 +39,12 @@ class ClienteServiceTest {
     @Test
     void whenGetClientes_thenReturnListOfClientes() {
         // Given
-        ArrayList<ClienteEntity> clientes = new ArrayList<>();
+        ArrayList<RegistroClienteEntity> clientes = new ArrayList<>();
         clientes.add(cliente);
         when(clienteRepository.findAll()).thenReturn(clientes); // Simula el comportamiento del repositorio
 
         // When
-        ArrayList<ClienteEntity> found = clienteService.getClientes();
+        ArrayList<RegistroClienteEntity> found = clienteService.getClientes();
 
         // Then
         assertThat(found).isNotNull();
@@ -58,7 +58,7 @@ class ClienteServiceTest {
         when(clienteRepository.save(cliente)).thenReturn(cliente); // Simula el comportamiento del repositorio
 
         // When
-        ClienteEntity savedCliente = clienteService.saveCliente(cliente);
+        RegistroClienteEntity savedCliente = clienteService.saveCliente(cliente);
 
         // Then
         assertThat(savedCliente).isNotNull();
@@ -71,7 +71,7 @@ class ClienteServiceTest {
         when(clienteRepository.save(cliente)).thenReturn(cliente);
 
         // When
-        ClienteEntity registeredCliente = clienteService.registrarCliente(cliente);
+        RegistroClienteEntity registeredCliente = clienteService.registrarCliente(cliente);
 
         // Then
         assertThat(registeredCliente).isNotNull();
@@ -84,7 +84,7 @@ class ClienteServiceTest {
         when(clienteRepository.findById(1L)).thenReturn(Optional.of(cliente)); // Simula el comportamiento del repositorio
 
         // When
-        ClienteEntity foundCliente = clienteService.getClienteById(1L);
+        RegistroClienteEntity foundCliente = clienteService.getClienteById(1L);
 
         // Then
         assertThat(foundCliente).isNotNull();
@@ -97,7 +97,7 @@ class ClienteServiceTest {
         when(clienteRepository.findByRut(cliente.getRut())).thenReturn(cliente); // Simula el comportamiento del repositorio
 
         // When
-        ClienteEntity foundCliente = clienteService.getClienteByRut(cliente.getRut());
+        RegistroClienteEntity foundCliente = clienteService.getClienteByRut(cliente.getRut());
 
         // Then
         assertThat(foundCliente).isNotNull();
@@ -110,7 +110,7 @@ class ClienteServiceTest {
         when(clienteRepository.save(cliente)).thenReturn(cliente);
 
         // When
-        ClienteEntity updatedCliente = clienteService.updateCliente(cliente);
+        RegistroClienteEntity updatedCliente = clienteService.updateCliente(cliente);
 
         // Then
         assertThat(updatedCliente).isNotNull();
